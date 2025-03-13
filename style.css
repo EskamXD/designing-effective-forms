@@ -9,11 +9,20 @@ form {
     flex-direction: column;
 }
 
+.form-page {
+    /* Każda strona formularza – domyślnie ukryte poza pierwszą */
+}
+
 .modal {
     background: #c6d0ff7a;
 }
 
 .form-check {
     margin-bottom: 0.5rem;
+}
+
+.form-check-label img {
+    margin-right: 0.5rem;
+    vertical-align: middle;
 }
 
