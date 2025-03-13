@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" defer></script>
+
     <title>Efektywne formularze</title>
 </head>
 
@@ -31,9 +31,10 @@
             </div>
             <div class="mb-3">
                 <label for="country" class="form-label">Kraj</label>
-                <!-- Zamiast selecta używamy input + datalist, co umożliwia inteligentne podpowiedzi -->
-                <input type="text" class="form-control" id="country" placeholder="Wpisz kraj" list="countries" required>
-                <datalist id="countries"></datalist>
+                <select class="form-select" id="country" required>
+                    <option value="">Wybierz kraj</option>
+                    <!-- Options will be filled by JavaScript -->
+                </select>
             </div>
             <div class="row mb-3">
                 <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
@@ -42,7 +43,7 @@
                         <option selected>Wybierz...</option>
                         <option value="+48">+48 (Polska)</option>
                         <option value="+1">+1 (Stany Zjednoczone)</option>
-                        <!-- Dodaj więcej opcji według potrzeb -->
+                        <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
                     </select>
                     <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy"
                         required>
@@ -56,50 +57,28 @@
                 <label for="zipCode" class="form-label">Kod pocztowy</label>
                 <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" required>
             </div>
-
-            <!-- Zmiana pola wyboru przesyłki na przyciski radiowe -->
             <div class="mb-3">
-                <label class="form-label">Rodzaj przesyłki</label>
-                <div id="shippingMethod">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shippingMethod" id="shippingDPD" value="DPD"
-                            required>
-                        <label class="form-check-label" for="shippingDPD">DPD</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shippingMethod" id="shippingInPost"
-                            value="InPost" required>
-                        <label class="form-check-label" for="shippingInPost">InPost</label>
-                    </div>
-                </div>
+                <label for="shippingMethod" class="form-label">Rodzaj przesyłki</label>
+                <select class="form-select" id="shippingMethod" required>
+                    <option value="">Wybierz rodzaj przesyłki</option>
+                    <option value="DPD">DPD</option>
+                    <option value="InPost">InPost</option>
+                </select>
             </div>
-
-            <!-- Zmiana pola wyboru płatności na przyciski radiowe -->
             <div class="mb-3">
-                <label class="form-label">Rodzaj płatności</label>
-                <div id="paymentMethod">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentKarta"
-                            value="karta" required>
-                        <label class="form-check-label" for="paymentKarta">Karta</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentBLIK" value="blik"
-                            required>
-                        <label class="form-check-label" for="paymentBLIK">BLIK</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentPosrednik"
-                            value="pośrednik" required>
-                        <label class="form-check-label" for="paymentPosrednik">Pośrednik płatności</label>
-                    </div>
-                </div>
+                <label for="paymentMethod" class="form-label">Rodzaj płatności</label>
+                <select class="form-select" id="paymentMethod" required>
+                    <option value="">Wybierz rodzaj płatności</option>
+                    <option value="karta">Karta</option>
+                    <option value="blik">BLIK</option>
+                    <option value="pośrednik">Pośrednik płatności</option>
+                </select>
             </div>
 
             <!-- Dodatkowe pola, np. dane do faktury -->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Wpisz email">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -122,9 +101,10 @@
             </div>
 
             <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#form-feedback-modal">Submit</button>
+                data-bs-target="#form-feedback-modal">submit</button>
         </form>
     </div>
+
 
     <!-- Raport kliknięć -->
     <div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel"
@@ -139,8 +119,7 @@
                     <p>Ilość kliknięć myszką: <span id="click-count">0</span></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        onclick="() => location.reload()">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

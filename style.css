@@ -1,3 +1,19 @@
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 .modal {
     background: #c6d0ff7a;
 }
+
+.form-check {
+    margin-bottom: 0.5rem;
+}
+
