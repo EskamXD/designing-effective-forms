@@ -7,13 +7,17 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" defer></script>
     <title>Efektywne formularze</title>
 </head>
 
 <body>
+    <div class="container mt-4 mb-4">
+        <button id="signInButton" class="btn btn-primary">Create Account / Sign In</button>
+        <button id="signOutButton" class="btn btn-secondary">Sign Out</button>
+    </div>
+
     <div class="container">
         <h1>Uzupełnij formularz</h1>
         <form id="form">
@@ -194,5 +198,8 @@
         </div>
     </div>
 </body>
+
+<script src="script.js" defer></script>
+<script type="module" src="authentication.js" defer></script>
 
 </html>
